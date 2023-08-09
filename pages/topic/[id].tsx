@@ -1,14 +1,15 @@
 import { NextPage } from "next";
-import downIcon from '@/public/down.png';
-import styles from './index.module.scss';
-import { commentList, topicDetail, topicList } from "@/constant/topicDetailData";
-import { topicType } from "..";
 import Image from "next/image";
 import { LeftCircleOutlined, RightCircleOutlined } from "@ant-design/icons";
 import { useState } from "react";
 import Link from "next/link";
 import CommentItem from "@/components/CommentItem";
 import Head from "next/head";
+import styles from './index.module.scss';
+import { commentList, topicDetail, topicList } from "@/constant/topicDetailData";
+import hotImage from '@/public/hotImage.jpeg';
+import { topicType } from "..";
+import { Button, Input, Rate } from "antd";
 
 export async function getServerSideProps(ctx: any) {
   const id = Number(ctx.query.id);
@@ -43,6 +44,13 @@ interface IProps {
 const TopicDetail: NextPage<IProps> = (props) => {
   const { id, topicDetail, commentList } = props;
   const [imgIndex, setImgIndex] = useState(0);
+  const [commentRate, setCommentRate] = useState(4.5);
+  const [commentName, setCommentName] = useState('');
+  const [commentText, setCommentText] = useState('');
+
+  const publishComment = () => {
+
+  }
 
   return <>
     <Head>
@@ -93,6 +101,19 @@ const TopicDetail: NextPage<IProps> = (props) => {
           <div className={styles.moreRow}>
             <Link href={`/commentList/${id}`} className={styles.moreButton}>更多评价({topicDetail.commentCount})</Link>
           </div>
+        </div>
+      </div>
+      <div className={styles.userComment}>
+        <div className={styles.leftContent}>
+          <div className={styles.commentAvatar}>
+            <Image width={60} height={60} alt="" src={hotImage}></Image>
+          </div>
+        </div>
+        <div className={styles.rightContent}>
+          <Input className={styles.commentUser} onChange={e => setCommentName(e.target.value)} placeholder="匿名访客" />
+          <Rate className={styles.rate} value={commentRate} onChange={setCommentRate} />
+          <Input.TextArea onChange={e => setCommentText(e.target.value)} />
+          <Button onClick={publishComment} className={styles.publishButton}>发表</Button>
         </div>
       </div>
     </div>

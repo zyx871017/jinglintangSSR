@@ -226,4 +226,44 @@
       }
     }
   }
+
+  .userComment {
+    background-color: #FFF;
+    padding: 20px;
+    display: flex;
+    margin-top: 20px;
+
+    .leftContent {
+      margin-right: 20px;
+
+      .commentAvatar {
+        width: 60px;
+        height: 60px;
+        border-radius: 30px;
+        overflow: hidden;
+      }
+    }
+
+    .rightContent {
+      width: 100%;
+
+      .commentUser {
+        width: 300px;
+        margin-bottom: 6px;
+      }
+
+      .rate {
+        display: block;
+        color: #00afc7;
+        margin-bottom: 10px;
+      }
+
+      .publishButton {
+        background-color: #00afc7;
+        color: #FFF;
+        border: none;
+        margin-top: 10px;
+      }
+    }
+  }
 }
