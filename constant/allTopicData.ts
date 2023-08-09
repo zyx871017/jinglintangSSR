@@ -1,0 +1,123 @@
+import hotImage from '@/public/hotImage.jpeg';
+
+export const tagList = [{
+  id: 1,
+  title: '西城区'
+}, {
+  id: 2,
+  title: '海淀区'
+}, {
+  id: 3,
+  title: '东城区'
+}, {
+  id: 4,
+  title: '石景山区'
+}, {
+  id: 5,
+  title: '朝阳区'
+}, {
+  id: 6,
+  title: '丰台区'
+}, {
+  id: 7,
+  title: '顺义区'
+}, {
+  id: 8,
+  title: '房山区'
+}, {
+  id: 9,
+  title: '大兴区'
+}, {
+  id: 10,
+  title: '昌平区'
+}, {
+  id: 11,
+  title: '通州区'
+}, {
+  id: 12,
+  title: '密云区'
+}, {
+  id: 13,
+  title: '平谷区'
+}, {
+  id: 14,
+  title: '怀柔区'
+}, {
+  id: 15,
+  title: '延庆区'
+}, {
+  id: 16,
+  title: '门头沟区'
+}]
+
+export const allTopicList = [{
+  id: 1,
+  title: '美式美家外贸家具店',
+  rate: 4.8,
+  commentCount: 200,
+  address: '朝阳区',
+  image: hotImage
+}, {
+  id: 2,
+  title: '美式美家外贸家具店',
+  rate: 4.8,
+  commentCount: 200,
+  address: '朝阳区',
+  image: hotImage
+}, {
+  id: 3,
+  title: '美式美家外贸家具店',
+  rate: 4.8,
+  commentCount: 200,
+  address: '朝阳区',
+  image: hotImage
+}, {
+  id: 4,
+  title: '美式美家外贸家具店',
+  rate: 4.8,
+  commentCount: 200,
+  address: '朝阳区',
+  image: hotImage
+}, {
+  id: 5,
+  title: '美式美家外贸家具店',
+  rate: 4.8,
+  commentCount: 200,
+  address: '朝阳区',
+  image: hotImage
+}, {
+  id: 6,
+  title: '美式美家外贸家具店',
+  rate: 4.8,
+  commentCount: 200,
+  address: '朝阳区',
+  image: hotImage
+}, {
+  id: 7,
+  title: '美式美家外贸家具店',
+  rate: 4.8,
+  commentCount: 200,
+  address: '朝阳区',
+  image: hotImage
+}, {
+  id: 8,
+  title: '美式美家外贸家具店',
+  rate: 4.8,
+  commentCount: 200,
+  address: '朝阳区',
+  image: hotImage
+}, {
+  id: 9,
+  title: '美式美家外贸家具店',
+  rate: 4.8,
+  commentCount: 200,
+  address: '朝阳区',
+  image: hotImage
+}, {
+  id: 10,
+  title: '美式美家外贸家具店',
+  rate: 4.8,
+  commentCount: 200,
+  address: '朝阳区',
+  image: hotImage
+}]

@@ -1,0 +1,93 @@
+import hotImage from '@/public/hotImage.jpeg';
+
+export const allTopicList = [{
+  id: 1,
+  title: '美式美家外贸家具店',
+  rate: 4.8,
+  commentCount: 200,
+  address: '朝阳区',
+  image: hotImage,
+  coupon: '新老顾客到店优惠200元',
+  couponTime: '2023-08-08'
+}, {
+  id: 2,
+  title: '美式美家外贸家具店',
+  rate: 4.8,
+  commentCount: 200,
+  address: '朝阳区',
+  image: hotImage,
+  coupon: '新老顾客到店优惠200元',
+  couponTime: '2023-08-08'
+}, {
+  id: 3,
+  title: '美式美家外贸家具店',
+  rate: 4.8,
+  commentCount: 200,
+  address: '朝阳区',
+  image: hotImage,
+  coupon: '新老顾客到店优惠200元',
+  couponTime: '2023-08-08'
+}, {
+  id: 4,
+  title: '美式美家外贸家具店',
+  rate: 4.8,
+  commentCount: 200,
+  address: '朝阳区',
+  image: hotImage,
+  coupon: '新老顾客到店优惠200元',
+  couponTime: '2023-08-08'
+}, {
+  id: 5,
+  title: '美式美家外贸家具店',
+  rate: 4.8,
+  commentCount: 200,
+  address: '朝阳区',
+  image: hotImage,
+  coupon: '新老顾客到店优惠200元',
+  couponTime: '2023-08-08'
+}, {
+  id: 6,
+  title: '美式美家外贸家具店',
+  rate: 4.8,
+  commentCount: 200,
+  address: '朝阳区',
+  image: hotImage,
+  coupon: '新老顾客到店优惠200元',
+  couponTime: '2023-08-08'
+}, {
+  id: 7,
+  title: '美式美家外贸家具店',
+  rate: 4.8,
+  commentCount: 200,
+  address: '朝阳区',
+  image: hotImage,
+  coupon: '新老顾客到店优惠200元',
+  couponTime: '2023-08-08'
+}, {
+  id: 8,
+  title: '美式美家外贸家具店',
+  rate: 4.8,
+  commentCount: 200,
+  address: '朝阳区',
+  image: hotImage,
+  coupon: '新老顾客到店优惠200元',
+  couponTime: '2023-08-08'
+}, {
+  id: 9,
+  title: '美式美家外贸家具店',
+  rate: 4.8,
+  commentCount: 200,
+  address: '朝阳区',
+  image: hotImage,
+  coupon: '新老顾客到店优惠200元',
+  couponTime: '2023-08-08'
+}, {
+  id: 10,
+  title: '美式美家外贸家具店',
+  rate: 4.8,
+  commentCount: 200,
+  address: '朝阳区',
+  image: hotImage,
+  coupon: '新老顾客到店优惠200元',
+  couponTime: '2023-08-08'
+}]

@@ -1,0 +1,103 @@
+.navbar {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  background-color: #FFF;
+
+  .navContent {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    padding: 18px;
+
+    .logoContent {
+      font-size: 20px;
+      font-weight: bold;
+      height: 44px;
+      line-height: 44px;
+    }
+
+    .searchContent {
+      margin-left: 20px;
+      flex: 1;
+      display: flex;
+
+      .searchInput {
+        flex: 1;
+        height: 44px;
+        line-height: 42px;
+        padding-left: 10px;
+        border: 2px solid #00d0d4;
+        border-radius: 5px 0 0 5px;
+        font-size: 16px;
+        color: #9e9e9e;
+
+        &:focus-visible {
+          border: 2px solid #00d0d4;
+          outline: none
+        }
+      }
+
+      .searchButton {
+        height: 44px;
+        line-height: 44px;
+        text-align: center;
+        background: linear-gradient(116deg, #00d0d4 5%, #00c5c3 51%, #9effa4 100%);
+        border: none;
+        color: #FFF;
+        width: 68px;
+        border-radius: 0 5px 5px 0;
+        cursor: pointer;
+        font-size: 16px;
+      }
+    }
+
+    .publishContent {
+      margin-left: 20px;
+
+      .publishButton {
+        display: block;
+        color: #FFF;
+        width: 140px;
+        background: linear-gradient(116deg, #00d0d4 5%, #00c5c3 51%, #9effa4 100%);
+        height: 44px;
+        text-align: center;
+        line-height: 44px;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .navMenuContent {
+    margin: 0 auto;
+    height: 44px;
+    background: linear-gradient(116deg, #00d0d4 5%, #00c5c3 51%, #9effa4 100%);
+
+    .navMenu {
+      width: 1200px;
+      margin: 0 auto;
+      display: flex;
+
+      .navButton {
+        line-height: 44px;
+        padding: 0 12px;
+        color: #FFF;
+        cursor: pointer;
+        transition: background-color .3s linear;
+        text-decoration: none;
+
+        &.active {
+          background-color: #0088a4;
+        }
+
+        &:hover {
+          background-color: #0088a4;
+        }
+      }
+    }
+  }
+}

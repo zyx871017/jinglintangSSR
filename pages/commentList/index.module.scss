@@ -1,0 +1,35 @@
+.pageContent {
+  width: 1200px;
+  margin: 0 auto;
+
+  .commentContent {
+    margin-top: 20px;
+    background-color: #FFF;
+    padding: 20px;
+
+    .titleContent {
+      font-size: 16px;
+      color: #333;
+      font-weight: 700;
+      margin-bottom: 30px;
+    }
+
+    .commentCount {
+      color: #999;
+    }
+
+    .commentList {
+
+      .moreRow {
+        text-align: right;
+        margin-top: 10px;
+
+        .moreButton {
+          cursor: pointer;
+          font-size: 14px;
+          color: #999;
+        }
+      }
+    }
+  }
+}

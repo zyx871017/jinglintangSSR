@@ -1,0 +1,141 @@
+import hotImage from '@/public/hotImage.jpeg';
+import recommendImage from '@/public/recommendImage.jpeg';
+
+export const hotTopicList = [{
+  title: '蔚徕J酒店(北京前门店)123123',
+  rate: 4.7,
+  id: 1,
+  commentCount: 20,
+  image: hotImage,
+  address: '大栅栏商业街附近'
+}, {
+  title: '蔚徕J酒店(北京前门店)',
+  rate: 4.7,
+  id: 2,
+  commentCount: 20,
+  image: hotImage,
+  address: '大栅栏商业街附近'
+}, {
+  title: '蔚徕J酒店(北京前门店)',
+  rate: 4.7,
+  id: 3,
+  commentCount: 20,
+  image: hotImage,
+  address: '大栅栏商业街附近'
+}, {
+  title: '蔚徕J酒店(北京前门店)',
+  rate: 4.7,
+  id: 4,
+  commentCount: 20,
+  image: hotImage,
+  address: '大栅栏商业街附近'
+}, {
+  title: '蔚徕J酒店(北京前门店)',
+  rate: 4.7,
+  id: 5,
+  commentCount: 20,
+  image: hotImage,
+  address: '大栅栏商业街附近'
+}, {
+  title: '蔚徕J酒店(北京前门店)',
+  rate: 4.7,
+  id: 6,
+  commentCount: 20,
+  image: hotImage,
+  address: '大栅栏商业街附近'
+}];
+
+export const mastTopicList = [{
+  title: '蔚徕J酒店(北京前门店)',
+  rate: 4.7,
+  id: 1,
+  commentCount: 20,
+  image: hotImage,
+  address: '大栅栏商业街附近'
+}, {
+  title: '蔚徕J酒店(北京前门店)',
+  rate: 4.7,
+  id: 2,
+  commentCount: 20,
+  image: hotImage,
+  address: '大栅栏商业街附近'
+}, {
+  title: '蔚徕J酒店(北京前门店)',
+  rate: 4.7,
+  id: 3,
+  commentCount: 20,
+  image: hotImage,
+  address: '大栅栏商业街附近'
+}, {
+  title: '蔚徕J酒店(北京前门店)',
+  rate: 4.7,
+  id: 4,
+  commentCount: 20,
+  image: hotImage,
+  address: '大栅栏商业街附近'
+}, {
+  title: '蔚徕J酒店(北京前门店)',
+  rate: 4.7,
+  id: 5,
+  commentCount: 20,
+  image: hotImage,
+  address: '大栅栏商业街附近'
+}, {
+  title: '蔚徕J酒店(北京前门店)',
+  rate: 4.7,
+  id: 6,
+  commentCount: 20,
+  image: hotImage,
+  address: '大栅栏商业街附近'
+}];
+
+export const recommendList = [{
+  title: '蔚徕J酒店(北京前门店)',
+  rate: 4.7,
+  id: 1,
+  commentCount: 20,
+  image: recommendImage,
+  address: '大栅栏商业街附近'
+}, {
+  title: '蔚徕J酒店(北京前门店)',
+  rate: 4.7,
+  id: 2,
+  commentCount: 20,
+  image: recommendImage,
+  address: '大栅栏商业街附近'
+}, {
+  title: '蔚徕J酒店(北京前门店)',
+  rate: 4.7,
+  id: 3,
+  commentCount: 20,
+  image: recommendImage,
+  address: '大栅栏商业街附近'
+}, {
+  title: '蔚徕J酒店(北京前门店)',
+  rate: 4.7,
+  id: 4,
+  commentCount: 20,
+  image: recommendImage,
+  address: '大栅栏商业街附近'
+}, {
+  title: '蔚徕J酒店(北京前门店)',
+  rate: 4.7,
+  id: 5,
+  commentCount: 20,
+  image: recommendImage,
+  address: '大栅栏商业街附近'
+}, {
+  title: '蔚徕J酒店(北京前门店)',
+  rate: 4.7,
+  id: 6,
+  commentCount: 20,
+  image: recommendImage,
+  address: '大栅栏商业街附近'
+}, {
+  title: '蔚徕J酒店(北京前门店)',
+  rate: 4.7,
+  id: 7,
+  commentCount: 20,
+  image: recommendImage,
+  address: '大栅栏商业街附近'
+}];

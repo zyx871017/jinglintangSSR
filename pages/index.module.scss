@@ -1,0 +1,302 @@
+.mainContent {
+  max-width: 1200px;
+  margin: 0 auto;
+
+  .rowCard {
+    margin-top: 25px;
+    display: flex;
+
+    .hotCard {
+      margin-right: 10px;
+      background-color: #FFF;
+      width: 100%;
+
+      &:nth-last-child(1) {
+        margin-right: 0;
+      }
+
+      .titleContent {
+        margin: 20px 0;
+        padding: 0 20px;
+        display: flex;
+        line-height: 30px;
+        font-size: 20px;
+        font-weight: 400;
+        justify-content: space-between;
+
+        .cardIcon {
+          margin-right: 10px;
+        }
+
+        .rightContent {
+          cursor: pointer;
+
+          &:hover {
+            .moreLink {
+              color: #00afc7
+            }
+
+            .moreIcon {
+              color: #00afc7
+            }
+          }
+
+          .moreLink {
+            font-size: 14px;
+            color: #999;
+            text-decoration: none;
+            margin-right: 4px;
+            transition: color .3s linear;
+          }
+
+          .moreIcon {
+            color: #999;
+            font-size: 14px;
+            transition: color .3s linear;
+          }
+        }
+      }
+
+      .cardContent {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 0 10px 10px;
+
+        .topicContent {
+          width: 170px;
+          overflow: hidden;
+          margin: 0 10px 10px;
+
+          &:hover {
+            cursor: pointer;
+          }
+
+          .topicImage {
+            width: 170px;
+            height: 96px;
+            transition: transform .3s linear;
+
+            &:hover {
+              transform: scale(120%, 120%);
+            }
+          }
+
+          .topicInfoContent {
+            margin-top: 12px;
+
+            .title {
+              font-size: 16px;
+              color: #333;
+              text-overflow: ellipsis;
+              white-space: nowrap;
+              overflow: hidden;
+              line-height: 20px;
+              height: 20px;
+            }
+
+            .infoRow {
+              margin-top: 6px;
+              height: 14px;
+              line-height: 14px;
+
+              .infoRate {
+                font-size: 14px;
+                color: #00afc7;
+              }
+
+              .infoComment {
+                font-size: 11px;
+                color: #999;
+                float: right;
+              }
+
+              .address {
+                font-size: 11px;
+                color: #999;
+                float: right;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .recommendCard {
+    width: 100%;
+    background-color: #FFF;
+    margin-top: 25px;
+    overflow: hidden;
+
+    .titleContent {
+      margin: 20px 0;
+      padding: 0 20px;
+      display: flex;
+      line-height: 30px;
+      font-size: 20px;
+      font-weight: 400;
+      justify-content: space-between;
+
+      .cardIcon {
+        margin-right: 10px;
+      }
+
+      .rightContent {
+        cursor: pointer;
+
+        &:hover {
+          .moreLink {
+            color: #00afc7
+          }
+
+          .moreIcon {
+            color: #00afc7
+          }
+        }
+
+        .moreLink {
+          font-size: 14px;
+          color: #999;
+          text-decoration: none;
+          margin-right: 4px;
+          transition: color .3s linear;
+        }
+
+        .moreIcon {
+          color: #999;
+          font-size: 14px;
+          transition: color .3s linear;
+        }
+      }
+    }
+
+    .topicContent {
+      padding: 0 10px 10px;
+      display: flex;
+
+      .mainCard {
+        margin: 0 10px 10px;
+        width: 440px;
+        height: 340px;
+        overflow: hidden;
+        cursor: pointer;
+        position: relative;
+
+        &:hover {
+          .mainCardInfo {
+            position: absolute;
+            top: 250px;
+          }
+        }
+
+        .mainCardInfo {
+          position: absolute;
+          top: 300px;
+          background: linear-gradient(rgba(0, 0, 0, .1), rgba(0, 0, 0, .8));
+          width: 100%;
+          padding: 10px;
+          color: #FFF;
+          transition: top .2s linear;
+
+          .mainCardTitle {
+            font-size: 16px;
+            height: 20px;
+            line-height: 20px;
+            color: #FFF;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            margin-bottom: 6px;
+          }
+
+          .mainInfoRow {
+            margin-bottom: 6px;
+            line-height: 20px;
+            height: 20px;
+
+            .mainInfoRate {
+              font-size: 14px;
+              color: #00afc7;
+            }
+
+            .mainInfoComment {
+              font-size: 11px;
+              float: right;
+            }
+
+            .mainAddress {
+              height: 14px;
+              font-size: 11px;
+              line-height: 14px;
+            }
+          }
+        }
+      }
+
+      .otherTopicContent {
+        flex: 1;
+        display: flex;
+        flex-wrap: wrap;
+
+        .otherCard {
+          width: 220px;
+          height: 165px;
+          margin: 0 10px 10px;
+          overflow: hidden;
+          cursor: pointer;
+          position: relative;
+
+          &:hover {
+            .otherCardInfo {
+              position: absolute;
+              top: 75px;
+            }
+          }
+
+          .otherCardInfo {
+            position: absolute;
+            top: 125px;
+            background: linear-gradient(rgba(0, 0, 0, .1), rgba(0, 0, 0, .8));
+            width: 100%;
+            padding: 10px;
+            color: #FFF;
+            transition: top .2s linear;
+
+            .otherCardTitle {
+              font-size: 16px;
+              height: 20px;
+              line-height: 20px;
+              color: #FFF;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              white-space: nowrap;
+              margin-bottom: 6px;
+            }
+
+            .otherInfoRow {
+              margin-bottom: 6px;
+              line-height: 20px;
+              height: 20px;
+
+              .otherInfoRate {
+                font-size: 14px;
+                color: #00afc7;
+              }
+
+              .otherInfoComment {
+                font-size: 11px;
+                float: right;
+              }
+
+              .otherAddress {
+                height: 14px;
+                font-size: 11px;
+                line-height: 14px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

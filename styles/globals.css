@@ -1,0 +1,14 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+#__next {
+  padding-top: 124px;
+}
+
+body {
+  background-color: #eee;
+}

@@ -1,0 +1,26 @@
+.pageContent {
+  text-align: right;
+  margin-top: 10px;
+  color: #333;
+
+  .pageButton {
+    padding: 0 8px;
+    height: 26px;
+    line-height: 26px;
+    font-size: 12px;
+    color: #333;
+    background-color: #FFF;
+    border: 1px solid #DDD;
+    display: inline-block;
+    margin-left: 6px;
+
+    &.active {
+      background-color: #EAEAEA;
+      cursor: default;
+    }
+
+    &:hover {
+      background-color: #EAEAEA;
+    }
+  }
+}
