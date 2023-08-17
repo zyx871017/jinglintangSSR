@@ -17,7 +17,7 @@ const CommentItem = (props: IProps) => {
   }
   return <div key={comment.id} className={styles.commentItem}>
     <div className={styles.commentAvatar}>
-      <Image preview={false} width={60} height={60} alt="" src={comment.userAvatar || boyImage}></Image>
+      <Image width={60} height={60} alt="" src={comment.userAvatar || boyImage}></Image>
     </div>
     <div className={styles.rightContent}>
       <div className={styles.username}>{comment.userListVo.userName}</div>
