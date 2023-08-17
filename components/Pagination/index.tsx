@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import qs from 'qs';
 import styles from './index.module.scss';
 import classNames from 'classnames';
 
@@ -8,11 +9,12 @@ interface IProps {
   total: number;
   pageNo: number;
   baseUrl?: string;
+  query: Record<string, any>;
 }
 
 const Pagination = (props: IProps) => {
   const pageSize = 10;
-  const { pageNo, total, baseUrl = '/topic/allTopic' } = props;
+  const { pageNo, total, baseUrl = '/topic/allTopic', query } = props;
   const totalPage = Math.ceil(total / pageSize);
 
   const renderLastButton = () => {
@@ -21,7 +23,7 @@ const Pagination = (props: IProps) => {
     } else {
       return <Link
         className={styles.pageButton}
-        href={`${baseUrl}?pageNo=${pageNo - 1}`}
+        href={`${baseUrl}?${qs.stringify({ ...query, pageNo: pageNo - 1 })}`}
       >上一页</Link>
     }
   }
@@ -32,7 +34,7 @@ const Pagination = (props: IProps) => {
     } else {
       return <Link
         className={styles.pageButton}
-        href={`${baseUrl}?pageNo=${pageNo + 1}`}
+        href={`${baseUrl}?${qs.stringify({ ...query, pageNo: pageNo + 1 })}`}
       >下一页</Link>
     }
   }
@@ -87,7 +89,7 @@ const Pagination = (props: IProps) => {
         [styles.pageButton]: true,
         [styles.active]: pageNo === no
       })}
-      href={`${baseUrl}?pageNo=${no}`}
+      href={`${baseUrl}?${qs.stringify({ ...query, pageNo: no })}`}
     >{no}</Link>)}
     {renderRightDot()}
     <Link
@@ -95,7 +97,7 @@ const Pagination = (props: IProps) => {
         [styles.pageButton]: true,
         [styles.active]: pageNo === totalPage
       })}
-      href={`${baseUrl}?pageNo=${totalPage}`}>{totalPage}</Link>
+      href={`${baseUrl}?${qs.stringify({ ...query, pageNo: totalPage })}`}>{totalPage}</Link>
     {renderNextButton()}
   </div>
 }

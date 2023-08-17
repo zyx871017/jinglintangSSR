@@ -1,7 +1,8 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect } from 'react';
-import { RightOutlined } from '@ant-design/icons'
+import { RightOutlined } from '@ant-design/icons';
+import { Image as AntImage } from 'antd';
 import Banner from '@/components/Banner';
 import styles from './index.module.scss';
 import bannerImg from '@/public/bannerImg.jpeg';
@@ -9,16 +10,16 @@ import bannerImg1 from '@/public/bannerImg1.jpeg';
 import { useStore } from '@/store';
 import hotIcon from '@/public/hot.png';
 import mastIcon from '@/public/mast.png';
-import { hotTopicList, mastTopicList, recommendList } from '@/constant/indexPageData';
-import Head from 'next/head';
+import request from '@/service/fetch';
+import { fallImage } from '@/constant';
 
 export type topicType = {
   id: number;
   title: string;
-  rate: number;
+  score: number;
   address: string;
-  commentCount: number;
-  image: string;
+  commentTotal: number;
+  imgUrl: string;
 }
 
 interface IProps {
@@ -28,6 +29,8 @@ interface IProps {
 }
 
 export async function getServerSideProps() {
+  const data = await request.get('http://bj.jinglintang.club:8000/jlt-api-web/');
+  const { hot: hotTopicList, recommend: mastTopicList, bottom: recommendList } = data.data;
   return {
     props: {
       hotTopicList,
@@ -70,21 +73,21 @@ export default function Home(props: IProps) {
             </div>
           </div>
           <div className={styles.cardContent}>
-            {hotTopicList.map(topic => <div className={styles.topicContent} key={topic.id}>
+            {hotTopicList.map(topic => <Link href={`/topic/${topic.id}`} className={styles.topicContent} key={topic.id}>
               <div className={styles.topicImage}>
-                <Image width={170} height={96} src={topic.image} alt=""></Image>
+                <AntImage preview={false} fallback={fallImage} width={170} height={96} src={topic.imgUrl} alt=""></AntImage>
               </div>
               <div className={styles.topicInfoContent}>
                 <div className={styles.title}>{topic.title}</div>
                 <div className={styles.infoRow}>
-                  <span className={styles.infoRate}>{topic.rate}分</span>
-                  <span className={styles.infoComment}>{topic.commentCount}条评价</span>
+                  <span className={styles.infoRate}>{topic.score}分</span>
+                  <span className={styles.infoComment}>{topic.commentTotal}条评价</span>
                 </div>
                 <div className={styles.infoRow}>
                   <span className={styles.address}>{topic.address}</span>
                 </div>
               </div>
-            </div>)}
+            </Link>)}
           </div>
         </div>
         <div className={styles.hotCard}>
@@ -99,21 +102,21 @@ export default function Home(props: IProps) {
             </div>
           </div>
           <div className={styles.cardContent}>
-            {mastTopicList.map(topic => <div className={styles.topicContent} key={topic.id}>
+            {mastTopicList.map(topic => <Link href={`/topic/${topic.id}`} className={styles.topicContent} key={topic.id}>
               <div className={styles.topicImage}>
-                <Image width={170} height={96} src={topic.image} alt=""></Image>
+                <AntImage preview={false} fallback={fallImage} width={170} height={96} src={topic.imgUrl} alt=""></AntImage>
               </div>
               <div className={styles.topicInfoContent}>
                 <div className={styles.title}>{topic.title}</div>
                 <div className={styles.infoRow}>
-                  <span className={styles.infoRate}>{topic.rate}分</span>
-                  <span className={styles.infoComment}>{topic.commentCount}条评价</span>
+                  <span className={styles.infoRate}>{topic.score}分</span>
+                  <span className={styles.infoComment}>{topic.commentTotal}条评价</span>
                 </div>
                 <div className={styles.infoRow}>
                   <span className={styles.address}>{topic.address}</span>
                 </div>
               </div>
-            </div>)}
+            </Link>)}
           </div>
         </div>
       </div>
@@ -129,37 +132,37 @@ export default function Home(props: IProps) {
           </div>
         </div>
         <div className={styles.topicContent}>
-          <div className={styles.mainCard}>
+          <Link href={`/topic/${mainTopic.id}`} className={styles.mainCard}>
             <div className={styles.mainCardImage}>
-              <Image width={440} height={340} src={mainTopic.image} alt="" ></Image>
+              <AntImage preview={false} fallback={fallImage} width={440} height={340} src={mainTopic.imgUrl} alt="" ></AntImage>
             </div>
             <div className={styles.mainCardInfo}>
               <div className={styles.mainCardTitle}>{mainTopic.title}</div>
               <div className={styles.mainInfoRow}>
-                <span className={styles.mainInfoRate}>{mainTopic.rate}分</span>
-                <span className={styles.mainInfoComment}>{mainTopic.commentCount}条评价</span>
+                <span className={styles.mainInfoRate}>{mainTopic.score}分</span>
+                <span className={styles.mainInfoComment}>{mainTopic.commentTotal}条评价</span>
               </div>
               <div className={styles.mainInfoRow}>
                 <span className={styles.mainAddress}>{mainTopic.address}</span>
               </div>
             </div>
-          </div>
+          </Link>
           <div className={styles.otherTopicContent}>
-            {otherTopicList.map(topic => <div key={topic.id} className={styles.otherCard}>
+            {otherTopicList.map(topic => <Link href={`/topic/${topic.id}`} key={topic.id} className={styles.otherCard}>
               <div className={styles.otherCardImage}>
-                <Image width={220} height={165} src={topic.image} alt="" ></Image>
+                <AntImage preview={false} fallback={fallImage} width={220} height={165} src={topic.imgUrl} alt="" ></AntImage>
               </div>
               <div className={styles.otherCardInfo}>
                 <div className={styles.otherCardTitle}>{topic.title}</div>
                 <div className={styles.otherInfoRow}>
-                  <span className={styles.otherInfoRate}>{topic.rate}分</span>
-                  <span className={styles.otherInfoComment}>{topic.commentCount}条评价</span>
+                  <span className={styles.otherInfoRate}>{topic.score}分</span>
+                  <span className={styles.otherInfoComment}>{topic.commentTotal}条评价</span>
                 </div>
                 <div className={styles.otherInfoRow}>
                   <span className={styles.otherAddress}>{topic.address}</span>
                 </div>
               </div>
-            </div>)}
+            </Link>)}
           </div>
         </div>
       </div>

@@ -1,23 +1,53 @@
 import { NextPage } from "next";
 import Image from "next/image";
+import { Image as AntImage } from 'antd';
 import { LeftCircleOutlined, RightCircleOutlined } from "@ant-design/icons";
 import { useState } from "react";
 import Link from "next/link";
 import CommentItem from "@/components/CommentItem";
 import Head from "next/head";
 import styles from './index.module.scss';
-import { commentList, topicDetail, topicList } from "@/constant/topicDetailData";
 import hotImage from '@/public/hotImage.jpeg';
-import { topicType } from "..";
 import { Button, Input, Rate } from "antd";
+import request from "@/service/fetch";
+import { fetchTopicCommentList } from "@/service/topicDetail";
 
 export async function getServerSideProps(ctx: any) {
   const id = Number(ctx.query.id);
+  const data = await request.post('http://bj.jinglintang.club:8000/jlt-api-web/topic/detail', { id });
+  const { content } = data.data;
+  const contentList = content?.split('<p><span>') || [];
+  const detailList: string[] = [];
+  contentList.forEach((str: string) => {
+    const replaceStr = str.replace(/<\/span><\/p>/, '');
+    const splitList = replaceStr?.split('：&nbsp;') || [];
+    splitList.forEach((s: string) => detailList.push(s));
+  });
+  const topicDetail = {
+    ...data.data,
+    images: [data.data.imgUrl]
+  }
+  detailList.forEach((str: string, i: number) => {
+    if (str === '地址') {
+      topicDetail.addressDetail = detailList[i + 1];
+    } else if (str === '电话') {
+      topicDetail.phone = detailList[i + 1];
+    } else if (str === '微信') {
+      topicDetail.weixin = detailList[i + 1];
+    } else if (str === 'QQ') {
+      topicDetail.qq = detailList[i + 1];
+    } else if (str === '营业时间') {
+      topicDetail.openingHours = detailList[i + 1];
+    } else if (str === '商户简介：') {
+      topicDetail.summary = detailList[i + 1].split('<p>')[0];
+    }
+  });
+  const commentListData = await fetchTopicCommentList({ topicId: id, pageSize: 10, pageNo: 1 });
+  const commentList = commentListData.data.records;
   return {
     props: {
-      topicList,
       topicDetail,
-      commentList,
+      commentList: JSON.parse(JSON.stringify(commentList)),
       id
     }
   }
@@ -25,14 +55,13 @@ export async function getServerSideProps(ctx: any) {
 
 interface IProps {
   id: number;
-  topicList: topicType[];
   topicDetail: {
     title: string;
-    rate: number
+    score: number
     commentCount: number;
     addressDetail: string;
-    phone: string;
-    weixin: string;
+    telephone: string;
+    wechat: string;
     qq: string;
     summary: string;
     openingHours: string;
@@ -41,7 +70,7 @@ interface IProps {
   commentList: any[];
 }
 
-const TopicDetail: NextPage<IProps> = (props) => {
+const TopicDetail: NextPage<IProps> = (props: any) => {
   const { id, topicDetail, commentList } = props;
   const [imgIndex, setImgIndex] = useState(0);
   const [commentRate, setCommentRate] = useState(4.5);
@@ -52,6 +81,7 @@ const TopicDetail: NextPage<IProps> = (props) => {
 
   }
 
+  console.log(topicDetail);
   return <>
     <Head>
       <title>{topicDetail.title}-北京-京林堂养生会所</title>
@@ -63,29 +93,29 @@ const TopicDetail: NextPage<IProps> = (props) => {
         <div className={styles.leftContent}>
           <div className={styles.titleContent}>{topicDetail.title}</div>
           <div className={styles.infoRow}>
-            <span className={styles.infoRate}>{topicDetail.rate}分</span>
-            <span className={styles.infoComment}>{topicDetail.commentCount}条评价</span>
+            <span className={styles.infoRate}>{topicDetail.score}分</span>
+            <span className={styles.infoComment}>{topicDetail.commentTotal}条评价</span>
           </div>
           <div className={styles.infoRow}>
-            <span className={styles.baseInfo}>营业时间:{topicDetail.openingHours}</span>
+            <span className={styles.baseInfo}>营业时间:{topicDetail.openingHour}</span>
           </div>
           <div className={styles.infoRow}>
-            <span className={styles.baseInfo}>地址:{topicDetail.addressDetail}</span>
+            <span className={styles.baseInfo}>地址:{topicDetail.address}</span>
           </div>
           <div className={styles.infoRow}>
-            <span className={styles.baseInfo}>电话:{topicDetail.phone}</span>
-            <span className={styles.baseInfo}>微信:{topicDetail.weixin}</span>
+            <span className={styles.baseInfo}>电话:{topicDetail.telephone}</span>
+            <span className={styles.baseInfo}>微信:{topicDetail.wechat}</span>
           </div>
           <div className={styles.infoRow}>
             <span className={styles.baseInfo}>QQ:{topicDetail.qq}</span>
           </div>
           <div className={styles.divider}></div>
           <div className={styles.detailContent}>
-            <span className={styles.baseInfo}>商家简介:{topicDetail.summary}</span>
+            <span className={styles.baseInfo}>商家简介:{topicDetail.description}</span>
           </div>
         </div>
         <div className={styles.rightContent}>
-          <Image alt="" src={topicDetail.images[imgIndex]} width={320} height={210} />
+          <AntImage preview={false} alt="" src={topicDetail.imgUrl} width={320} height={210} />
           <LeftCircleOutlined className={styles.leftButton} />
           <RightCircleOutlined className={styles.rightButton} />
           <div className={styles.indexContent}>{imgIndex + 1} / {topicDetail.images.length}</div>
@@ -94,12 +124,13 @@ const TopicDetail: NextPage<IProps> = (props) => {
       <div className={styles.commentContent}>
         <div className={styles.titleContent}>
           <span className={styles.title}>网友评价</span>
-          <span className={styles.commentCount}>({topicDetail.commentCount})</span>
+          <span className={styles.commentCount}>({topicDetail.commentTotal})</span>
+          <Link href={`/commentList/${id}`} className={styles.writeComment}>写评价</Link>
         </div>
         <div className={styles.commentList}>
-          {commentList.map(comment => <CommentItem key={comment.id} comment={comment} />)}
+          {commentList.map((comment: any) => <CommentItem key={comment.id} comment={comment} />)}
           <div className={styles.moreRow}>
-            <Link href={`/commentList/${id}`} className={styles.moreButton}>更多评价({topicDetail.commentCount})</Link>
+            <Link href={`/commentList/${id}`} className={styles.moreButton}>更多评价({topicDetail.commentTotal})</Link>
           </div>
         </div>
       </div>

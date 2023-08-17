@@ -1,0 +1,36 @@
+.pageContent {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  background-color: #FFF;
+
+  .loginTitle {
+    font-size: 14px;
+    display: block;
+  }
+
+  .loginInput {
+    float: left;
+    margin-top: 10px;
+    margin-bottom: 30px;
+  }
+
+  .loginButton {
+    display: block;
+    width: 100%;
+    display: block;
+    background-color: #00afc7;
+    color: #FFF;
+    border: none;
+
+    &:hover {
+      color: #FFF !important;
+    }
+  }
+
+  .signUpButton {
+    display: block;
+    margin-top: 15px;
+    width: 100%;
+  }
+}

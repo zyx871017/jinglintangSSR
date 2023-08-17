@@ -205,7 +205,18 @@
       font-size: 16px;
       color: #333;
       font-weight: 700;
-      margin-bottom: 30px;
+      margin-bottom: 20px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #ddd;
+
+      .writeComment {
+        float: right;
+        margin-top: -10px;
+        padding: 10px 20px;
+        background-color: #00afc7;
+        color: #FFF;
+        border-radius: 5px;
+      }
     }
 
     .commentCount {

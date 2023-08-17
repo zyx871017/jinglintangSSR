@@ -63,6 +63,7 @@
         padding: 0 10px 10px;
 
         .topicContent {
+          display: block;
           width: 170px;
           overflow: hidden;
           margin: 0 10px 10px;
@@ -114,6 +115,9 @@
                 font-size: 11px;
                 color: #999;
                 float: right;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
               }
             }
           }
@@ -228,6 +232,9 @@
               height: 14px;
               font-size: 11px;
               line-height: 14px;
+              overflow: hidden;
+              white-space: nowrap;
+              text-overflow: ellipsis;
             }
           }
         }
@@ -277,6 +284,9 @@
               margin-bottom: 6px;
               line-height: 20px;
               height: 20px;
+              overflow: hidden;
+              white-space: nowrap;
+              text-overflow: ellipsis;
 
               .otherInfoRate {
                 font-size: 14px;
