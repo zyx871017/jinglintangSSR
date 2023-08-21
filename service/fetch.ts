@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const request = axios.create({
-  baseURL: 'http://localhost:3000'
+  // baseURL: `http://${process.env.SERVICE_HOST}:${process.env.SERVICE_PORT}`
 });
 
 request.interceptors.request.use((config) => config, error => Promise.reject(error));
