@@ -1,5 +1,21 @@
 .pageContent {
-  width: 1200px;
-  margin-top: 0 auto;
-  background-color: #FFF;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+
+  .searchField {
+    padding: 20px;
+    background-color: #FFF;
+  }
+
+  .buttonContent {
+    margin-bottom: 10px;
+    text-align: right;
+  }
+
+  .tableContent {
+    margin-top: 20px;
+    background-color: #FFF;
+    padding: 20px;
+  }
 }

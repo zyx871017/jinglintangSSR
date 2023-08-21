@@ -81,7 +81,6 @@ const TopicDetail: NextPage<IProps> = (props: any) => {
 
   }
 
-  console.log(topicDetail);
   return <>
     <Head>
       <title>{topicDetail.title}-北京-京林堂养生会所</title>

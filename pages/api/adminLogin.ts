@@ -5,7 +5,6 @@ import { Cookie } from 'next-cookie';
 async function adminLoginApi(req: NextApiRequest, res: NextApiResponse) {
   const { username, password } = req.body;
   const resData = await fetchAdminLogin({ account: username, password });
-  console.log(resData);
   const { code, data, msg } = resData;
   if (code === 200) {
     const cookies = Cookie.fromApiRoute(req, res);
