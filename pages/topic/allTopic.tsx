@@ -7,6 +7,7 @@ import { topicType } from "..";
 import Pagination from "@/components/Pagination";
 import { fetchTagList } from "@/service/topicDetail";
 import request from "@/service/fetch";
+import { fallImage } from "@/constant";
 
 export async function getServerSideProps(ctx: any) {
   const query = ctx.query;
@@ -24,7 +25,7 @@ export async function getServerSideProps(ctx: any) {
     pageSize: 10,
     tagId: currentTag?.id || ''
   };
-  const data = await request.post(`http://${process.env.SERVICE_HOST}:${process.env.SERVICE_PORT}/jlt-api-web/topic/page`, params);
+  const data = await request.post(`http://${process.env.SERVICE_HOST}/jlt-api-web/topic/page`, params);
   const { records, total, current } = data.data;
   return {
     props: {
@@ -59,7 +60,7 @@ const AllTopic: NextPage<IProps> = (props: any) => {
       {allTopicList.map((topic: any) => <div key={topic.id} className={styles.topicContent}>
         <div className={styles.imageContent}>
           <Link href={`/topic/${topic.id}`}>
-            <AntImage preview={false} width={175} height={130} alt="" src={topic.imgUrl}></AntImage>
+            <AntImage fallback={fallImage} preview={false} width={175} height={130} alt="" src={topic.imgUrl || ''}></AntImage>
           </Link>
         </div>
         <div className={styles.rightContent}>

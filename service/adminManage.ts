@@ -10,7 +10,7 @@ interface IFAdminStoreList {
 }
 
 export async function fetchAdminStoreList(params: IFAdminStoreList) {
-  return request.post(`http://${process.env.SERVICE_HOST}:${process.env.SERVICE_PORT}/jlt-api-web/admin/topic/page`, params);
+  return request.post(`http://${process.env.SERVICE_HOST}/jlt-api-web/admin/topic/page`, params);
 }
 
 interface IFSaveStore {
@@ -30,11 +30,11 @@ interface IFSaveStore {
   wechat?: string;
 }
 export async function fetchSaveStore(params: IFSaveStore) {
-  return request.post(`http://${process.env.SERVICE_HOST}:${process.env.SERVICE_PORT}/jlt-api-web/admin/topic/save`, params);
+  return request.post(`http://${process.env.SERVICE_HOST}/jlt-api-web/admin/topic/save`, params);
 }
 
 export async function fetchTopicDetail(params: { id: number }) {
-  return request.post(`http://${process.env.SERVICE_HOST}:${process.env.SERVICE_PORT}/jlt-api-web/admin/topic/detail`, params);
+  return request.post(`http://${process.env.SERVICE_HOST}/jlt-api-web/admin/topic/detail`, params);
 }
 
 interface IFAdminCommentList {
@@ -45,5 +45,5 @@ interface IFAdminCommentList {
 }
 
 export async function fetchAdminCommentList(params: IFAdminCommentList) {
-  return request.post(`http://${process.env.SERVICE_HOST}:${process.env.SERVICE_PORT}/jlt-api-web/admin/comment/comment/page`, params);
+  return request.post(`http://${process.env.SERVICE_HOST}/jlt-api-web/admin/comment/comment/page`, params);
 }
