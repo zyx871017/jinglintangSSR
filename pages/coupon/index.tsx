@@ -20,7 +20,7 @@ export async function getServerSideProps(ctx: any) {
     pageNo = Number(query.pageNo);
   }
   const params = {
-    isStaff: false,
+    isStaff: true,
     pageNo,
     pageSize: 10,
     tagId: currentTag?.id || ''

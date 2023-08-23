@@ -1,11 +1,11 @@
 .bannerContent {
-  max-width: 1200px;
+  width: 1200px;
   height: 350px;
   overflow: hidden;
   position: relative;
 
   .bannerItem {
-    max-width: 1200px;
+    width: 1200px;
     height: 350px;
     position: absolute;
     top: 0;
@@ -18,7 +18,7 @@
     }
 
     .bannerImage {
-      max-width: 1200px;
+      width: 1200px;
       height: 350px;
     }
   }
