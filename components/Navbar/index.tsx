@@ -2,6 +2,8 @@ import { useState } from 'react';
 import classNames from 'classnames';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
+import Image from 'next/image';
+import logoImage from '@/public/jinglintang.jpg';
 import styles from './index.module.scss';
 
 const Navbar = () => {
@@ -16,7 +18,9 @@ const Navbar = () => {
   ]
   return <header className={styles.navbar}>
     <div className={styles.navContent}>
-      <div className={styles.logoContent}>京林堂</div>
+      <Link href="/" className={styles.logoContent}>
+        <Image width={44} height={44} src={logoImage} alt="" />
+      </Link>
       <div className={styles.searchContent}>
         <input
           value={search}
