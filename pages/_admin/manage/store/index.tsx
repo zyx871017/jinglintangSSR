@@ -1,5 +1,5 @@
 import { NextPage } from "next";
-import { Row, Col, Table, Form, Button, Select, message, Modal } from "antd";
+import { Row, Col, Table, Form, Button, Select, message, Modal, Input } from "antd";
 import qs from 'qs';
 import styles from './index.module.scss';
 import { fetchAdminStoreList, fetchTopicDetail } from "@/service/adminManage";
@@ -15,6 +15,7 @@ export async function getServerSideProps(ctx: any) {
   const query = ctx.query;
   const status: number = query.status ? Number(query.status) : 0;
   const tagQuery: number = query.tagId ? Number(query.tagId) : 0;
+  const title: string = query.title || undefined;
   const tagListData = await fetchTagList();
   const tagList = tagListData.data;
   const currentTag = tagList.find((tag: any) => tag.id === tagQuery);
@@ -27,7 +28,8 @@ export async function getServerSideProps(ctx: any) {
     pageNo,
     tagId: tagQuery || undefined,
     status: status || undefined,
-    pageSize: 20
+    pageSize: 20,
+    title
   };
   const resData = await fetchAdminStoreList(params);
   const { data: { records, total } } = resData;
@@ -38,6 +40,7 @@ export async function getServerSideProps(ctx: any) {
       total,
       pageNo,
       status,
+      title,
       tagStr: currentTag?.name || '不限',
       tagId: tagQuery
     }
@@ -52,6 +55,7 @@ interface IProps {
   tagStr: string;
   tagId: string;
   status: string;
+  title: string;
 }
 
 const StoreManage: NextPage<IProps> = (props) => {
@@ -167,6 +171,11 @@ const StoreManage: NextPage<IProps> = (props) => {
                 <Option value={20}>已发布</Option>
                 <Option value={30}>审核中</Option>
               </Select>
+            </Form.Item>
+          </Col>
+          <Col span={6}>
+            <Form.Item label="商户名" name="title">
+              <Input placeholder="请输入商户名" />
             </Form.Item>
           </Col>
           <Col span={6}>

@@ -2,6 +2,7 @@ import request from '@/service/fetch';
 import { Button, Drawer, Form, Input, Select, Upload, UploadFile, UploadProps, message } from 'antd';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
+import UploadImage from '../UploadImage';
 
 const { Option } = Select;
 
@@ -125,7 +126,8 @@ const EditTopicDrawer = (props: IProps) => {
         <Input.TextArea placeholder="请输入商户简介" />
       </Form.Item>
       <Form.Item label="商户封面" name="image">
-        <Upload
+        <UploadImage />
+        {/* <Upload
           action="http://bj.jinglintang.club:8000/jlt-api-web/file/upload"
           listType="picture-card"
           fileList={fileList}
@@ -133,7 +135,7 @@ const EditTopicDrawer = (props: IProps) => {
           onPreview={onPreview}
         >
           {fileList.length < 5 && '+ Upload'}
-        </Upload>
+        </Upload> */}
       </Form.Item>
     </Form>
   </Drawer>
