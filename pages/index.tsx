@@ -49,13 +49,7 @@ export default function Home(props: IProps) {
   }, []);
   const data = [{
     title: '测试',
-    image: bannerImg
-  }, {
-    title: '测试2',
-    image: bannerImg1
-  }, {
-    title: '测试3',
-    image: bannerImg1
+    image: 'https://s3.ap-southeast-1.amazonaws.com/jinglintang.club.fun.images/public/2023/08/24/138551692866304.jpg'
   }]
 
   return (

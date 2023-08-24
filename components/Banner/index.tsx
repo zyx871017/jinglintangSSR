@@ -1,10 +1,11 @@
-import Image, { StaticImageData } from "next/image";
+import { StaticImageData } from "next/image";
+import { Image as AntImage } from 'antd';
 import classNames from 'classnames';
 import styles from './index.module.scss';
 import { useEffect, useState } from "react";
 
 interface IProps {
-  data: { title: string; image: StaticImageData }[]
+  data: { title: string; image: string }[]
 }
 
 const Banner = (props: IProps) => {
@@ -24,7 +25,7 @@ const Banner = (props: IProps) => {
     {data.map((item, index) => <div className={classNames({
       [styles.bannerItem]: true,
       [styles.active]: activeIndex === index
-    })} key={item.title}><Image className={styles.bannerImage} alt="" src={item.image} /></div>)}
+    })} key={item.title}><AntImage preview={false} className={styles.bannerImage} alt="" src={item.image} /></div>)}
     <div className={styles.bannerDot}>
       {data.map((_, index) => <i key={index} className={classNames({
         [styles.dotIcon]: true,
