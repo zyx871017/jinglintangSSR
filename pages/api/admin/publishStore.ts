@@ -7,7 +7,7 @@ async function disableStore(req: NextApiRequest, res: NextApiResponse) {
   const adid = cookies.get('adid');
   if (adid) {
     const body = req.body;
-    const resData: any = await fetchChangeStatus({ ...body, status: 10 }).catch(e => e);
+    const resData: any = await fetchChangeStatus({ ...body, status: 20 }).catch(e => e);
     if (resData?.code === 200) {
       res.status(200).json({ code: 0, msg: 'success' });
     } else {

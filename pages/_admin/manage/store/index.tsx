@@ -15,7 +15,7 @@ export async function getServerSideProps(ctx: any) {
   const query = ctx.query;
   const status: number = query.status ? Number(query.status) : 0;
   const tagQuery: number = query.tagId ? Number(query.tagId) : 0;
-  const title: string = query.title || undefined;
+  const title: string = query.title || '';
   const tagListData = await fetchTagList();
   const tagList = tagListData.data;
   const currentTag = tagList.find((tag: any) => tag.id === tagQuery);
@@ -29,14 +29,14 @@ export async function getServerSideProps(ctx: any) {
     tagId: tagQuery || undefined,
     status: status || undefined,
     pageSize: 20,
-    title
+    title: title || undefined
   };
   const resData = await fetchAdminStoreList(params);
   const { data: { records, total } } = resData;
   return {
     props: {
-      tagList: tagListData.data,
-      allTopicList: records,
+      tagList: JSON.parse(JSON.stringify(tagListData.data)),
+      allTopicList: JSON.parse(JSON.stringify(records)),
       total,
       pageNo,
       status,
@@ -97,7 +97,7 @@ const StoreManage: NextPage<IProps> = (props) => {
       align: 'center',
       render: (value: number) => {
         if (value === 10) {
-          return '已删除';
+          return '已禁用';
         } else if (value === 20) {
           return '已发布';
         } else if (value === 30) {
@@ -112,7 +112,7 @@ const StoreManage: NextPage<IProps> = (props) => {
       render: (record: any) => {
         return <>
           <Button onClick={() => editTopic(record)} type="link">编辑</Button>
-          <Button onClick={() => deleteTopic(record)} type="link">删除</Button>
+          {record.status === 20 ? <Button onClick={() => deleteTopic(record)} type="link">禁用</Button> : <Button onClick={() => publishTopic(record)} type="link">发布</Button>}
         </>
       }
     }
@@ -142,7 +142,21 @@ const StoreManage: NextPage<IProps> = (props) => {
           message.error(res.msg);
         }
       }
-    })
+    });
+  }
+
+  const publishTopic = (record: any) => {
+    Modal.confirm({
+      title: `确定要发布商铺:${record.title}吗`,
+      onOk: async () => {
+        const res: any = await request.post('/api/admin/publishStore', { id: record.id });
+        if (res.code === 0) {
+          router.reload();
+        } else {
+          message.error(res.msg);
+        }
+      }
+    });
   }
 
   const submitSearch = (values: any) => {

@@ -33,6 +33,10 @@ export async function fetchSaveStore(params: IFSaveStore) {
   return request.post(`http://${process.env.SERVICE_HOST}/jlt-api-web/admin/topic/save`, params);
 }
 
+export async function fetchChangeStatus(params: { id: number; status: number }) {
+  return request.post(`http://${process.env.SERVICE_HOST}/jlt-api-web/admin/topic/changeStatus`, params);
+}
+
 export async function fetchTopicDetail(params: { id: number }) {
   return request.post(`http://${process.env.SERVICE_HOST}/jlt-api-web/admin/topic/detail`, params);
 }
