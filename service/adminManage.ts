@@ -49,5 +49,5 @@ interface IFAdminCommentList {
 }
 
 export async function fetchAdminCommentList(params: IFAdminCommentList) {
-  return request.post(`http://${process.env.SERVICE_HOST}/jlt-api-web/admin/comment/comment/page`, params);
+  return request.post(`http://${process.env.SERVICE_HOST}/jlt-api-web/admin/comment/page`, params);
 }

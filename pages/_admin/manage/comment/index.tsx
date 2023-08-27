@@ -25,6 +25,7 @@ export async function getServerSideProps(ctx: any) {
     status: status || undefined,
     pageSize: 20
   };
+  console.log(params);
   const resData = await fetchAdminCommentList(params);
   const { data: { records, total } } = resData;
   return {

@@ -15,6 +15,7 @@ import { fetchTopicCommentList } from "@/service/topicDetail";
 export async function getServerSideProps(ctx: any) {
   const id = Number(ctx.query.id);
   const data = await request.post(`http://${process.env.SERVICE_HOST}/jlt-api-web/topic/detail`, { id });
+  console.log(data);
   const { content } = data.data;
   const contentList = content?.split('<p><span>') || [];
   const detailList: string[] = [];
@@ -124,7 +125,7 @@ const TopicDetail: NextPage<IProps> = (props: any) => {
         <div className={styles.titleContent}>
           <span className={styles.title}>网友评价</span>
           <span className={styles.commentCount}>({topicDetail.commentTotal})</span>
-          <Link href={`/commentList/${id}`} className={styles.writeComment}>写评价</Link>
+          <Link href={`/writeComment/${id}`} className={styles.writeComment}>写评价</Link>
         </div>
         <div className={styles.commentList}>
           {commentList.map((comment: any) => <CommentItem key={comment.id} comment={comment} />)}
