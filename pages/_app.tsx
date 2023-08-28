@@ -4,9 +4,9 @@ import type { AppProps } from 'next/app';
 import Layout from '@/components/Layout';
 import { StoreProvider } from '@/store/index';
 import Head from 'next/head';
+import request from '@/service/fetch';
 
 export default function App({ Component, pageProps }: AppProps) {
-
   const renderLayout = () => {
     if ((Component as any).layout === null) {
       return <Component {...pageProps} />

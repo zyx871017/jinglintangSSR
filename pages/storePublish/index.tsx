@@ -47,7 +47,7 @@ const StorePublish: NextPage<IProps> = (props) => {
   return <div className={styles.pageContent}>
     <div className={styles.title}>店铺信息</div>
     <div className={styles.divider}></div>
-    <Form initialValues={{ tag: tagList[0].id }} colon={false} form={formIns} className={styles.storeForm}>
+    <Form initialValues={{ tagId: tagList[0].id }} colon={false} form={formIns} className={styles.storeForm}>
       <Form.Item className={styles.inputItem}>
         <div className={styles.secTitle}>基本信息</div>
         <Form.Item labelCol={{ span: 2 }} className={styles.inputItem} label="店铺名称" name="title">

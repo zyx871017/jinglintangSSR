@@ -9,7 +9,7 @@ async function registerApi(req: NextApiRequest, res: NextApiResponse) {
   if (code === 200) {
     const cookies = Cookie.fromApiRoute(req, res);
     const path = "/";
-    const expires = new Date(new Date().getTime() + 60 * 60 * 1000);
+    const expires = new Date(new Date().getTime() + 24 * 60 * 60 * 1000);
     cookies.set('uid', data.id, { path, expires, httpOnly: true });
     cookies.set('username', data.account, { path, expires, httpOnly: true });
     res.status(200).json({ code: 0, msg: 'success' });

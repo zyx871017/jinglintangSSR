@@ -5,8 +5,6 @@ import { RightOutlined } from '@ant-design/icons';
 import { Image as AntImage } from 'antd';
 import Banner from '@/components/Banner';
 import styles from './index.module.scss';
-import bannerImg from '@/public/bannerImg.jpeg';
-import bannerImg1 from '@/public/bannerImg1.jpeg';
 import { useStore } from '@/store';
 import hotIcon from '@/public/hot.png';
 import mastIcon from '@/public/mast.png';
