@@ -125,6 +125,12 @@ const EditTopicDrawer = (props: IProps) => {
       <Form.Item label="商户简介" name="description">
         <Input.TextArea placeholder="请输入商户简介" />
       </Form.Item>
+      <Form.Item label="点击量" name="viewTotal">
+        <Input placeholder="请输入点击量" />
+      </Form.Item>
+      <Form.Item label="排序" name="sort">
+        <Input placeholder="请输入排序" />
+      </Form.Item>
       <Form.Item label="商户封面" name="image">
         <UploadImage />
         {/* <Upload

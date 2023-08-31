@@ -12,6 +12,7 @@ const UploadImage = (props: IProps) => {
   const { value, onChange } = props;
   const [loading, setLoading] = useState(false);
 
+  console.log(value);
   const uploadButton = (
     <div>
       {loading ? <LoadingOutlined /> : <PlusOutlined />}

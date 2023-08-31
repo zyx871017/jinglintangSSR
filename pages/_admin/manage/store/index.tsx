@@ -2,7 +2,7 @@ import { NextPage } from "next";
 import { Row, Col, Table, Form, Button, Select, message, Modal, Input } from "antd";
 import qs from 'qs';
 import styles from './index.module.scss';
-import { fetchAdminStoreList, fetchTopicDetail } from "@/service/adminManage";
+import { fetchAdminStoreList } from "@/service/adminManage";
 import Pagination from "@/components/Pagination";
 import { fetchTagList } from "@/service/topicDetail";
 import { useRouter } from "next/router";
@@ -65,6 +65,7 @@ const StoreManage: NextPage<IProps> = (props) => {
   const [editingTopic, setEditingTopic] = useState<any>({});
   const router = useRouter();
 
+  console.log(allTopicList);
   const columns: any = [
     {
       title: '店铺名称',
@@ -121,7 +122,7 @@ const StoreManage: NextPage<IProps> = (props) => {
   const editTopic = async (record: any) => {
     const res: any = await request.post('/api/admin/getTopicDetail', { id: record.id });
     if (res.code === 0) {
-      setEditingTopic(res.data);
+      setEditingTopic({...res.data, image: res.data.imgUrl});
       setEditOpen(true);
       setIsEdit(true);
     } else if (res.code === 401) {

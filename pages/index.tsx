@@ -68,7 +68,7 @@ export default function Home(props: IProps) {
           <div className={styles.cardContent}>
             {hotTopicList.map(topic => <Link href={`/topic/${topic.id}`} className={styles.topicContent} key={topic.id}>
               <div className={styles.topicImage}>
-                <AntImage preview={false} fallback={fallImage} width={170} height={96} src={topic.imgUrl} alt=""></AntImage>
+                <AntImage preview={false} fallback={fallImage} width={170} height={120} src={topic.imgUrl} alt=""></AntImage>
               </div>
               <div className={styles.topicInfoContent}>
                 <div className={styles.title}>{topic.title}</div>
@@ -97,7 +97,7 @@ export default function Home(props: IProps) {
           <div className={styles.cardContent}>
             {mastTopicList.map(topic => <Link href={`/topic/${topic.id}`} className={styles.topicContent} key={topic.id}>
               <div className={styles.topicImage}>
-                <AntImage preview={false} fallback={fallImage} width={170} height={96} src={topic.imgUrl} alt=""></AntImage>
+                <AntImage preview={false} fallback={fallImage} width={170} height={120} src={topic.imgUrl} alt=""></AntImage>
               </div>
               <div className={styles.topicInfoContent}>
                 <div className={styles.title}>{topic.title}</div>
