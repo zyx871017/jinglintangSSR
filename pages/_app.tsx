@@ -1,10 +1,10 @@
-import '@/styles/globals.css';
 import 'antd/dist/reset.css';
 import type { AppProps } from 'next/app';
+import Head from 'next/head';
+import Script from 'next/script';
 import Layout from '@/components/Layout';
 import { StoreProvider } from '@/store/index';
-import Head from 'next/head';
-import request from '@/service/fetch';
+import '@/styles/globals.css';
 
 export default function App({ Component, pageProps }: AppProps) {
   const renderLayout = () => {
@@ -19,6 +19,19 @@ export default function App({ Component, pageProps }: AppProps) {
             <meta name="description" content="京林堂是汇集北京会所信息资源分享点评平台,推广最优质北京会所,高端spa会所,个人按摩保健,家庭式休闲,北京丝足会所,桑拿洗浴中心等资源的网站。" />
           </Head>
           <Layout>
+            <Script async src="https://www.googletagmanager.com/gtag/js?id=G-MKZCGKP2ZP"></Script>
+            <Script
+              id="GA4"
+              strategy='afterInteractive'
+              dangerouslySetInnerHTML={{
+                __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-MKZCGKP2ZP');
+              `
+              }}
+            />
             <Component {...pageProps} />
           </Layout>
         </>
